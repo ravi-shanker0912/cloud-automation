@@ -106,12 +106,13 @@ def send_email(today, SENDER, RECIPIENT, filename, s3_bucket, s3_prefix):
         print(response['MessageId'])
 
 def lambda_handler(event, context):
-    aggregator_name = 'aggregator-name'
-    SENDER = 'Email of Sender'
-    RECIPIENT = 'Email if recipient'
-    today = datetime.datetime.now().strftime('%Y-%m-%d')
     filename = create_report(aggregator_name, today)
     s3_bucket = 'bucket-name'
     s3_prefix = 'daily-config-report'
     key = upload_to_s3(filename, s3_bucket, s3_prefix)
     send_email(today, SENDER, RECIPIENT, filename, s3_bucket, s3_prefix)
+    aggregator_name = 'aggregator-name'
+    SENDER = 'Email of Sender'
+    RECIPIENT = 'Email if recipient'
+    today = datetime.datetime.now().strftime('%Y-%m-%d')
+    
