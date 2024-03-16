@@ -113,6 +113,6 @@ def lambda_handler(event, context):
     send_email(today, SENDER, RECIPIENT, filename, s3_bucket, s3_prefix)
     aggregator_name = 'aggregator-name'
     SENDER = 'Email of Sender'
-    RECIPIENT = 'Email if recipient'
+    RECIPIENT = 'Email id recipient'
     today = datetime.datetime.now().strftime('%Y-%m-%d')
     
